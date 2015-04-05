@@ -71,7 +71,7 @@ It's possible to set the prefixes manually as well as changing the color of the 
 var CaptainsLog = require('captains-log-nw');
 
 var log = new CaptainsLog({
-  level: 'verbose,
+  level: 'verbose',
   prefixes: {
     silly   : 'silly  : ',
     verbose : 'verbose: ',
