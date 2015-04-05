@@ -68,7 +68,7 @@ var log = new CaptainsLog({
 It's possible to set the prefixes manually as well as changing the color of the output for specific levels.
 
 ```javascript
-var CaptainsLog = require('captains-low-nw');
+var CaptainsLog = require('captains-log-nw');
 
 var log = new CaptainsLog({
   level: 'verbose,
@@ -91,12 +91,14 @@ var log = new CaptainsLog({
 ```
 #### Configuring a custom logger
 
+__Not Tested__
+
 To use a different library, `overrides.custom` must already be instantiated and ready to go with (at minimum) an n-[ary](http://en.wikipedia.org/wiki/Arity) `.debug()` method.
 
 ##### Implementing the simplest possible override
 
 ```javascript
-var log = require('captains-log')({ custom: customLogger });
+var log = require('captains-log-nw')({ custom: customLogger });
 
 log('hello', 'world');
 // yields => "Hello world"
@@ -128,7 +130,7 @@ But Winston is awesome!  And it's a great fit for many apps, giving you granular
 To use boot up a captains-log that writes to Winston, do the following:
 
 ```javascript
-var log = require('captains-log')({
+var log = require('captains-log-nw')({
   custom: new (require('winston').Logger)({
     levels     : ...,
     transports : ...
