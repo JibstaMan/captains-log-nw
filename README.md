@@ -1,19 +1,18 @@
 # captains-log-nw
 
-Lightweight logger with a simple pass-through configuration for use with fancier logging libraries.  Used by the [Sails framework](http://github.com/balderdashy/sails).  Optional support for colorized output, custom prefixes, and log levels (using [npm's logging conventions](https://github.com/isaacs/npmlog#loglevelprefix-message-).)
+The lightweight logger from [SailsJS](http://github.com/balderdashy/sails) now made ready for [NW](https://github.com/nwjs/nw.js). Optional support for colorized output, custom prefixes and log levels (using [npm's logging conventions](https://github.com/isaacs/npmlog#loglevelprefix-message-)).
 
 
 ### Installation
 
 ```shell
-$ npm install captains-log
+$ npm install captains-log-nw
 ```
 
 ### Usage
 
 ```javascript
 var log = require('captains-log-nw')();
-
 log('hi');
 ```
 
@@ -21,7 +20,7 @@ See also [Console API](https://developer.chrome.com/devtools/docs/console-api).
 
 ##### Logging at a particular level
 
-By default, if you just call `log()`, captains-log will write your log output at the "debug" log level. You can achieve the same effect by writing `log.debug()`.
+By default, if you just call `log()`, captains-log-nw will write your log output at the "debug" log level. You can achieve the same effect by writing `log.debug()`.
 
 > IMPORTANT NOTE: npm calls this level `log.http()`, but we call it `debug`.
 > If you use `log()`, the logger sees this as a call to `log.debug()`)
@@ -34,44 +33,39 @@ var log = require('captains-log-nw')({
 });
 
 log.silly();
-
 log.verbose();
-
 log.info();
-
 log.blank(); // will output white text on a white background.
-
 log.debug();
-
 log.warn();
-
 log.error();
-
 log.crit(); // same as error, but can be configured to be different in style.
 
+// using other features from console, which will only be applied in silly log level
+// (and have the same colors applied)
 log.silly.groupCollapsed("Many silly level log messages.");
 log.silly();
 log.silly.groupEnd();
 ```
 
-Setting `level: 'silent'` will disable all logging, while setting `level: 'silly'` will enable all levels of logging.
+Setting `level: 'silent'` will disable all logging, while setting `level: 'silly'` will enable all levels of logging. For more details information, see [SailsJS logging](http://sailsjs.org/#!/documentation/concepts/Logging).
 
 ### Configuration
 
 For node-webkit, it's easiest if the `globalizeAs` option is used to expose the logger throughout the application.
 
 ```javascript
-var CaptainsLog = require('captains-low-nw');
+var CaptainsLog = require('captains-log-nw');
 
 var log = new CaptainsLog({
-  level: 'debug,
+  level: 'debug',
   globalizeAs: 'log',     // make it available globally, without using require()
   prefixTheme: 'aligned', // Use a different prefix for string logs.
   colors: false           // disable colors altogether.
 });
 ```
 
-It's possible to setting the prefixes manually as well as changing the color of the output.
+It's possible to set the prefixes manually as well as changing the color of the output for specific levels.
 
 ```javascript
 var CaptainsLog = require('captains-low-nw');
@@ -90,6 +84,7 @@ var log = new CaptainsLog({
   },
   prefixTheme: 'moderate', // will be ignored, since prefixes are set manually.
   colors: {
+    // NW's console allows for css styling for log output
     crit: 'color: red; font-weight: 600; font-size: 18px; text-transform: uppercase'
   }
 });
