@@ -1,5 +1,5 @@
 {
-  "name": "captains-log",
+  "name": "captains-log-nw",
   "version": "0.11.11",
   "description": "Lightweight logger with a simple pass-through configuration for use with fancier logging libraries",
   "main": "index.js",
@@ -8,24 +8,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mikermcneil/captains-log.git"
+    "url": "git://github.com/jibstaman/captains-log-nw.git"
   },
   "keywords": [
     "winston",
-    "sails",
     "log",
     "logger",
-    "waterline"
+    "nw",
+    "node-webkit"
   ],
-  "author": "Mike McNeil",
+  "author": "Peter Kamps",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mikermcneil/captains-log/issues"
+    "url": "https://github.com/jibstaman/captains-log-nw/issues"
   },
   "dependencies": {
     "lodash": "2.4.1",
     "rc": "~0.3.2",
-    "colors": "~0.6.2",
     "merge-defaults": "~0.1.0"
   },
   "devDependencies": {
