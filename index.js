@@ -38,7 +38,7 @@ module.exports = function CaptainsLog ( overrides ) {
 
 	// If no override was specified, we'll instantiate
 	// our default logger, `captains`.
-	var logger = captains();
+	var logger = captains(options);
 
 	// If a custom logger override was specified,
 	// lets try to use it.

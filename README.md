@@ -60,6 +60,8 @@ var CaptainsLog = require('captains-log-nw');
 var log = new CaptainsLog({
   level: 'debug',
   globalizeAs: 'log',     // make it available globally, without using require()
+  console: console,       // passing in the console from the Window object (Browser context)
+                          // makes the logs visible in the Developer Tools.
   prefixTheme: 'aligned', // Use a different prefix for string logs.
   colors: false           // disable colors altogether.
 });
